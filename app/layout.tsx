@@ -8,11 +8,13 @@ import {
 } from "next/font/google";
 import "./globals.css";
 
+// Variable range + optical-size axis so large display sizes get the
+// high-contrast cut (font-optical-sizing: auto maps opsz to font-size).
 const fraunces = Fraunces({
   variable: "--font-fraunces",
   subsets: ["latin"],
-  weight: ["600", "700"],
   style: ["normal", "italic"],
+  axes: ["opsz"],
 });
 
 const instrumentSans = Instrument_Sans({
