@@ -46,38 +46,13 @@ export default function Hero({
         </p>
 
         {/* CTA buttons */}
-        <div className="mb-16 flex flex-col sm:flex-row gap-4 justify-center items-center">
+        <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
           <button className="w-full sm:w-auto px-8 py-3 sm:py-4 bg-brass hover:bg-brass-2 text-ink font-medium text-base sm:text-lg rounded-sm transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-brass focus-visible:ring-offset-2 focus-visible:ring-offset-ink">
             {hero.ctaPrimary}
           </button>
           <button className="w-full sm:w-auto px-8 py-3 sm:py-4 border border-bone/60 text-bone hover:bg-bone/10 font-medium text-base sm:text-lg rounded-sm transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-bone focus-visible:ring-offset-2 focus-visible:ring-offset-ink">
             {hero.ctaSecondary}
           </button>
-        </div>
-
-        {/* Ticker */}
-        <div className="pt-8 border-t border-hairline">
-          <div className="flex flex-wrap justify-center gap-x-10 gap-y-6 sm:gap-x-14 text-center">
-            {hero.ticker.map((item) => (
-              <div key={item.label}>
-                <div
-                  className={`font-mono text-sm text-brass font-medium ${
-                    isAr ? "" : "tracking-wider"
-                  }`}
-                >
-                  {/* Figures stay Latin/LTR even in the Arabic layout */}
-                  <span dir="ltr">{item.value}</span>
-                </div>
-                <div
-                  className={`font-mono text-xs text-stone uppercase ${
-                    isAr ? "" : "tracking-wider"
-                  }`}
-                >
-                  {item.label}
-                </div>
-              </div>
-            ))}
-          </div>
         </div>
       </div>
 
