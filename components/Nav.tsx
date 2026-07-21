@@ -48,15 +48,13 @@ export default function Nav({
   return (
     <header className="fixed top-0 inset-x-0 z-50 bg-ink/95 backdrop-blur-sm border-b border-hairline">
       <nav className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex items-center justify-between gap-6">
-        {/* Brand — stays Latin (brand mark), sits at the inline-start edge. */}
         <Link
           href={lang === "ar" ? "/ar" : "/"}
           dir="ltr"
-          className="flex items-center text-xl font-serif font-bold text-bone rounded-sm focus:outline-none focus-visible:ring-2 focus-visible:ring-brass focus-visible:ring-offset-2 focus-visible:ring-offset-ink"
+          className="flex items-center rounded-sm focus:outline-none focus-visible:ring-2 focus-visible:ring-brass focus-visible:ring-offset-2 focus-visible:ring-offset-ink"
           aria-label="JR Dream — home"
-          style={{ fontFamily: "var(--font-fraunces), Georgia, serif" }}
         >
-          JR<span className="text-brass">.</span>Dream
+          <img src="/logo.png" alt="JR Dream Logo" className="h-10 w-auto" />
         </Link>
 
         {/* Desktop links */}
