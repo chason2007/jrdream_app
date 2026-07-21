@@ -1,26 +1,80 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --color-ink: #0d1826;
+  --color-ink-2: #132339;
+  --color-hairline: #1c3049;
+  --color-hairline-2: #26405b;
+  --color-bone: #f0eadd;
+  --color-stone: #a29a8c;
+  --color-brass: #c6a15b;
+  --color-brass-2: #dcc08a;
+
+  /* Latin (default) type stacks — bound to the next/font faces */
+  --font-serif: var(--font-fraunces), Georgia, serif;
+  --font-sans: var(--font-instrument-sans), system-ui, sans-serif;
+  --font-mono: var(--font-ibm-plex-mono), ui-monospace, monospace;
+
+  /* Arabic faces, referenced explicitly where a glyph must be Arabic */
+  --font-arabic-serif: var(--font-amiri), Georgia, serif;
+  --font-arabic-sans: var(--font-ibm-plex-arabic), system-ui, sans-serif;
 }
 
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --color-ink: var(--color-ink);
+  --color-ink-2: var(--color-ink-2);
+  --color-hairline: var(--color-hairline);
+  --color-hairline-2: var(--color-hairline-2);
+  --color-bone: var(--color-bone);
+  --color-stone: var(--color-stone);
+  --color-brass: var(--color-brass);
+  --color-brass-2: var(--color-brass-2);
+
+  --font-serif: var(--font-serif);
+  --font-sans: var(--font-sans);
+  --font-mono: var(--font-mono);
+  --font-arabic-serif: var(--font-arabic-serif);
+  --font-arabic-sans: var(--font-arabic-sans);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+html {
+  scroll-behavior: smooth;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  @apply bg-ink text-bone;
+  font-family: var(--font-sans);
+}
+
+::selection {
+  background: var(--color-brass);
+  color: var(--color-ink);
+}
+
+/*
+  Arabic / RTL: swap the display + UI stacks to the Arabic faces so every
+  `font-serif` / `font-sans` / `font-mono` utility inside the subtree resolves
+  to an Arabic-capable font. Cascades from the `dir="rtl"` page wrapper.
+*/
+[dir="rtl"] {
+  --font-serif: var(--font-amiri), Georgia, serif;
+  --font-sans: var(--font-ibm-plex-arabic), system-ui, sans-serif;
+  --font-mono: var(--font-ibm-plex-arabic), system-ui, sans-serif;
+}
+
+/* Arabic script is cursive — letter-spacing breaks the joins, so neutralize it. */
+[dir="rtl"] * {
+  letter-spacing: normal !important;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
 }
