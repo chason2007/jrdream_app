@@ -54,7 +54,7 @@ export default function Nav({
           className="flex items-center rounded-sm focus:outline-none focus-visible:ring-2 focus-visible:ring-brass focus-visible:ring-offset-2 focus-visible:ring-offset-ink"
           aria-label="JR Dream — home"
         >
-          <img src="/logo.png" alt="JR Dream Logo" className="h-10 w-auto" />
+          <img src="/logo.png" alt="JR Dream Logo" className="h-10 w-auto rounded-sm" />
         </Link>
 
         {/* Desktop links */}
