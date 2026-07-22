@@ -51,15 +51,17 @@ export default function Hero({
 
       <div className="relative z-10 w-full max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Eyebrow */}
-        <div className="mb-8 flex justify-center">
-          <span
-            className={`reveal font-mono text-xs text-stone uppercase ${
-              isAr ? "" : "tracking-[0.25em]"
-            }`}
-          >
-            {hero.eyebrow}
-          </span>
-        </div>
+        {hero.eyebrow && (
+          <div className="mb-8 flex justify-center">
+            <span
+              className={`reveal font-mono text-xs text-stone uppercase ${
+                isAr ? "" : "tracking-[0.25em]"
+              }`}
+            >
+              {hero.eyebrow}
+            </span>
+          </div>
+        )}
 
         {/* Headline — fluid across the whole scale */}
         <h1
