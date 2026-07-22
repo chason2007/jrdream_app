@@ -6,7 +6,7 @@ import Services from "@/components/Services";
 import Team from "@/components/Team";
 import Footer from "@/components/Footer";
 import LocaleHtml from "@/components/LocaleHtml";
-import { content } from "@/lib/content";
+import { getContent } from "@/lib/content";
 
 export const metadata: Metadata = {
   title: "جيه آر دريم | إدارة العقارات والمرافق",
@@ -14,19 +14,23 @@ export const metadata: Metadata = {
 };
 
 export default function ArabicHome() {
-  const dict = content.ar;
+  const dict = getContent("ar");
 
   return (
     <div lang="ar" dir="rtl" className="flex flex-col min-h-screen bg-ink">
       <LocaleHtml lang="ar" dir="rtl" />
-      <Nav lang="ar" dict={dict} />
+      <Nav lang="ar" content={dict.nav} />
       <main className="flex-1">
-        <Hero lang="ar" dict={dict} />
-        <About lang="ar" dict={dict} />
-        <Services lang="ar" dict={dict} />
-        <Team lang="ar" dict={dict} />
+        <Hero lang="ar" content={dict.hero} />
+        <About lang="ar" content={dict.about} />
+        <Services lang="ar" content={dict.services} />
+        <Team lang="ar" content={dict.team} />
       </main>
-      <Footer lang="ar" dict={dict} />
+      <Footer
+        lang="ar"
+        content={dict.footer}
+        proposalModalContent={dict.proposalModal}
+      />
     </div>
   );
 }

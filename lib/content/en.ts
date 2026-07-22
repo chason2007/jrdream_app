@@ -1,0 +1,168 @@
+import type { Content } from "./types";
+
+export const enContent: Content = {
+  dir: "ltr",
+  htmlLang: "en",
+  nav: {
+    links: [
+      { label: "Real Estate", href: "#services" },
+      { label: "Facilities", href: "#facilities" },
+      { label: "Portfolio", href: "#portfolio" },
+      { label: "Why Us", href: "#why-us" },
+    ],
+    clientPortal: "Client Portal",
+  },
+  hero: {
+    eyebrow: "Transforming Spaces. Empowering Vision",
+    headlineLead: "Great facilities management is",
+    headlineAccent: "invisible.",
+    lede: "JR Dream keeps Abu Dhabi's properties running so completely that the work itself disappears — leaving only a building that performs, every hour of every day.",
+    ctaPrimary: "Speak with us",
+    ctaSecondary: "Enter client portal",
+  },
+  services: {
+    eyebrow: "Our Scope of Work",
+    title: "Services Offered",
+    mission: "Bringing innovative solutions to optimize the potential of our clients and partners and shaping the future of Real Estate Management.",
+    items: [
+      {
+        num: "01",
+        title: "Property Conditional Assessment Survey",
+        desc: "Comprehensive structural, technical, and life-cycle evaluations of real estate assets to identify risks, deferments, and optimization priorities.",
+      },
+      {
+        num: "02",
+        title: "Property Fabric and MEP Refurbishment",
+        desc: "End-to-end refurbishment of architectural fabric and Mechanical, Electrical, and Plumbing (MEP) systems for enhanced operational performance.",
+      },
+      {
+        num: "03",
+        title: "Property Redevelopment Concept, Design & Project Management",
+        desc: "Strategic redevelopment planning, architectural & engineering concept design, and turnkey project management for maximum asset value.",
+      },
+      {
+        num: "04",
+        title: "Property / Community Management & FM Tender Support",
+        desc: "Full-spectrum property and community management, including Facilities Management tender preparation, vendor selection, and mobilization.",
+      },
+      {
+        num: "05",
+        title: "Automation and Digitization Solutions Consultation",
+        desc: "Expert advisory and implementation of smart building automation, IoT monitoring, prop-tech integration, and digital FM workflows.",
+      },
+    ],
+  },
+  about: {
+    eyebrow: "About JR Dream",
+    title: "Property, Projects & Facilities Consultancy",
+    headline: "Delivering Tailored Solutions to Aviation, Corporate, and Elite Private Clients",
+    paragraphs: [
+      "JR Dream is a Property, Projects, and Facilities Management Consultancy based in Abu Dhabi, delivering tailored solutions to Aviation, Corporate, and Elite Private Clients.",
+      "Founded in 2024, JR Dream brings together over 17 years of UAE experience in real estate, facilities, and workplace strategy — helping clients turn complex spaces into efficient, sustainable, and inspiring environments.",
+      "Our approach is technology-led, emphasizing data-driven decisions, transparency, and operational excellence across every project phase — from strategic planning and design management to delivery and ongoing asset performance.",
+      "We are proud to serve as trusted partners for organizations shaping the future of the UAE, combining global best practices with local insight.",
+    ],
+    stats: [
+      { label: "UAE Industry Experience", value: "17+ Years" },
+      { label: "Established HQ", value: "Abu Dhabi" },
+      { label: "Target Sectors", value: "Aviation & Corporate" },
+      { label: "Delivery Model", value: "Data & Tech Led" },
+    ],
+  },
+  team: {
+    eyebrow: "Leadership & Expertise",
+    title: "Meet Our Team",
+    subtitle: "Dedicated professionals working together to deliver exceptional property, projects, and facilities management solutions across the UAE.",
+    founder: {
+      name: "Joseph Dass",
+      role: "Founder / Director",
+      bio: "With over two decades of experience in the property and asset management sector, Joseph leads JR Dream with a vision to redefine real estate and facilities management consulting in the UAE.",
+      image: "/josephdass.jpg",
+      email: "jdass@jrdream.com",
+      linkedin: "https://www.linkedin.com/in/jrdass/",
+    },
+    members: [
+      {
+        name: "Darius Lotino",
+        role: "Project Manager (Engineering)",
+        credentials: "MBA, PEE, ACPE",
+        image: "/darius.png",
+        linkedin: "https://www.linkedin.com/in/darius-z-lotino-mba-pee-acpe-4b1427177/",
+      },
+      {
+        name: "Jennifer Robin",
+        role: "Project Engineer",
+        image: "/jennifer.png",
+        linkedin: "https://www.linkedin.com/in/jjennifer-robin/",
+      },
+      {
+        name: "Johanas",
+        role: "Senior Facilities Consultant",
+        image: "/johanas.png",
+      },
+      {
+        name: "Biju",
+        role: "Operations & Technical Advisor",
+        image: "/biju.png",
+      },
+      {
+        name: "Peter",
+        role: "Asset & Compliance Lead",
+        image: "/peter.png",
+      },
+    ],
+  },
+  footer: {
+    tagline: "Transforming Spaces. Empowering Vision — Elevating real estate performance and facilities excellence across Abu Dhabi.",
+    address: "Tower 1, Mazyad Mall Offices Floor 9, Office 30 - Abu Dhabi - United Arab Emirates",
+    phone: "+971 2 600 0100",
+    email: "contact@jrdream.ae",
+    hours: "Sun – Thu: 8:00 AM – 6:00 PM GST",
+    requestProposalBtn: "Request a Proposal",
+    sections: [
+      {
+        title: "Navigation",
+        links: [
+          { label: "Real Estate", href: "#services" },
+          { label: "Facilities", href: "#facilities" },
+          { label: "Portfolio", href: "#portfolio" },
+          { label: "Why Us", href: "#why-us" },
+          { label: "Client Portal", href: "#" },
+        ],
+      },
+    ],
+    copyright: "© 2026 JR Dream Real Estate & Facilities Management Co. W.L.L.",
+    rights: "All rights reserved.",
+  },
+  proposalModal: {
+    title: "Request a Custom Proposal",
+    subtitle: "Tell us about your property and management goals. Our advisory team in Abu Dhabi will respond within 24 hours.",
+    nameLabel: "Full Name",
+    namePlaceholder: "e.g. Sultan Al Mansoori",
+    emailLabel: "Email Address",
+    emailPlaceholder: "sultan@company.ae",
+    phoneLabel: "Phone Number",
+    phonePlaceholder: "+971 50 123 4567",
+    propertyTypeLabel: "Property Category",
+    propertyOptions: [
+      "Commercial Office Tower",
+      "Luxury Residential Complex",
+      "Retail & Mixed-Use Hub",
+      "Industrial & Logistics Facility",
+      "Government & Cultural Asset",
+    ],
+    serviceTypeLabel: "Primary Service Scope",
+    serviceOptions: [
+      "Total Facilities Management (TFM)",
+      "Property Management & Leasing",
+      "MEP & Energy Efficiency Retrofit",
+      "Strategic Real Estate Consulting",
+    ],
+    messageLabel: "Project Details & Specific Requirements",
+    messagePlaceholder: "Specify building area (sq ft), location, timeline, or current challenges...",
+    submitBtn: "Submit Proposal Request",
+    successTitle: "Proposal Request Received",
+    successMsg: "Thank you for reaching out to JR Dream. A senior portfolio director will review your specifications and contact you shortly.",
+    closeBtn: "Close Window",
+  },
+};

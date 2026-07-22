@@ -2,9 +2,10 @@
 
 import { useState } from "react";
 import Link from "next/link";
-import type { Content, Locale } from "@/lib/content";
+import type { BaseLocaleProps } from "@/types/common";
+import type { NavContent } from "@/lib/content";
 
-function LanguageToggle({ lang }: { lang: Locale }) {
+function LanguageToggle({ lang }: BaseLocaleProps) {
   const base =
     "transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-brass focus-visible:ring-offset-2 focus-visible:ring-offset-ink rounded-sm px-1";
   return (
@@ -33,13 +34,11 @@ function LanguageToggle({ lang }: { lang: Locale }) {
   );
 }
 
-export default function Nav({
-  lang,
-  dict,
-}: {
-  lang: Locale;
-  dict: Content;
-}) {
+export interface NavProps extends BaseLocaleProps {
+  content: NavContent;
+}
+
+export default function Nav({ lang, content }: NavProps) {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   const linkClass =
@@ -59,7 +58,7 @@ export default function Nav({
 
         {/* Desktop links */}
         <div className="hidden md:flex items-center gap-8 flex-1 justify-center">
-          {dict.nav.links.map((link) => (
+          {content.links.map((link) => (
             <a key={link.label} href={link.href} className={linkClass}>
               {link.label}
             </a>
@@ -70,7 +69,7 @@ export default function Nav({
         <div className="hidden md:flex items-center gap-5">
           <LanguageToggle lang={lang} />
           <button className="px-4 py-2 border border-brass/70 text-brass text-sm font-medium hover:bg-brass/10 transition-colors rounded-sm focus:outline-none focus-visible:ring-2 focus-visible:ring-brass focus-visible:ring-offset-2 focus-visible:ring-offset-ink">
-            {dict.nav.clientPortal}
+            {content.clientPortal}
           </button>
         </div>
 
@@ -102,7 +101,7 @@ export default function Nav({
       {isMenuOpen && (
         <div className="md:hidden border-t border-hairline bg-ink-2">
           <div className="px-4 py-4 space-y-1">
-            {dict.nav.links.map((link) => (
+            {content.links.map((link) => (
               <a
                 key={link.label}
                 href={link.href}
@@ -114,7 +113,7 @@ export default function Nav({
             <div className="border-t border-hairline mt-3 pt-4 flex items-center justify-between gap-4">
               <LanguageToggle lang={lang} />
               <button className="px-4 py-2 border border-brass/70 text-brass text-sm font-medium hover:bg-brass/10 transition-colors rounded-sm">
-                {dict.nav.clientPortal}
+                {content.clientPortal}
               </button>
             </div>
           </div>

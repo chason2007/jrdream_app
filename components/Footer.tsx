@@ -2,29 +2,31 @@
 
 import { useState } from "react";
 import Link from "next/link";
-import type { Content, Locale } from "@/lib/content";
+import type { BaseLocaleProps } from "@/types/common";
+import type { FooterContent, ProposalModalContent } from "@/lib/content";
 import ProposalModal from "./ProposalModal";
+
+export interface FooterProps extends BaseLocaleProps {
+  content: FooterContent;
+  proposalModalContent: ProposalModalContent;
+}
 
 export default function Footer({
   lang,
-  dict,
-}: {
-  lang: Locale;
-  dict: Content;
-}) {
+  content,
+  proposalModalContent,
+}: FooterProps) {
   const [isModalOpen, setIsModalOpen] = useState(false);
-  const footerDict = dict.footer;
+  const footerDict = content;
   const isAr = lang === "ar";
 
   return (
     <>
       <footer className="bg-ink-2 border-t border-hairline text-stone text-sm pt-16 pb-12 relative overflow-hidden">
-        {/* Subtle ambient lighting top border */}
         <div className="absolute top-0 inset-x-0 h-px bg-gradient-to-r from-transparent via-brass/40 to-transparent" />
 
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 pb-12 border-b border-hairline">
-            {/* Left Column: Brand & Location */}
             <div className="lg:col-span-5 space-y-6">
               <Link
                 href={isAr ? "/ar" : "/"}
@@ -43,7 +45,6 @@ export default function Footer({
                 {footerDict.tagline}
               </p>
 
-              {/* Proposal CTA Button */}
               <div>
                 <button
                   onClick={() => setIsModalOpen(true)}
@@ -66,7 +67,6 @@ export default function Footer({
                 </button>
               </div>
 
-              {/* Location details */}
               <div className="pt-2 space-y-2 text-xs font-mono text-stone/90">
                 <div className="flex items-start gap-2">
                   <svg
@@ -133,9 +133,7 @@ export default function Footer({
               </div>
             </div>
 
-            {/* Right Column: Navigation Links & Embedded Location Map */}
             <div className="lg:col-span-7 flex flex-col justify-between space-y-6">
-              {/* Navigation Links */}
               {footerDict.sections.map((section) => (
                 <div key={section.title} className="space-y-3">
                   <h3 className="text-xs font-mono uppercase text-bone tracking-wider">
@@ -162,7 +160,6 @@ export default function Footer({
                 </div>
               ))}
 
-              {/* Location Map Embed */}
               <div className="w-full h-48 sm:h-56 rounded-md border border-hairline hover:border-brass/40 transition-colors overflow-hidden relative shadow-lg bg-ink">
                 <iframe
                   title="JR DREAM Property & Facilities Management Office Location — Mazyad Mall Abu Dhabi"
@@ -178,19 +175,17 @@ export default function Footer({
             </div>
           </div>
 
-          {/* Bottom Bar */}
           <div className="pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs font-mono text-stone/70">
             <p>{footerDict.copyright} {footerDict.rights}</p>
           </div>
         </div>
       </footer>
 
-      {/* Proposal Request Modal */}
       <ProposalModal
         isOpen={isModalOpen}
         onClose={() => setIsModalOpen(false)}
         lang={lang}
-        dict={dict}
+        content={proposalModalContent}
       />
     </>
   );

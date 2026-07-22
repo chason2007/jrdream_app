@@ -1,35 +1,41 @@
 "use client";
 
-import { useState, useEffect } from "react";
-import type { Content, Locale } from "@/lib/content";
+import { useEffect } from "react";
+import type { BaseLocaleProps } from "@/types/common";
+import type { ProposalModalContent } from "@/lib/content";
+import { useProposalForm } from "@/hooks/useProposalForm";
+import type { IProposalService } from "@/lib/services/proposalService";
 
-interface ProposalModalProps {
+export interface ProposalModalProps extends BaseLocaleProps {
   isOpen: boolean;
   onClose: () => void;
-  lang: Locale;
-  dict: Content;
+  content: ProposalModalContent;
+  proposalService?: IProposalService;
 }
 
 export default function ProposalModal({
   isOpen,
   onClose,
   lang,
-  dict,
+  content,
+  proposalService,
 }: ProposalModalProps) {
-  const modalDict = dict.proposalModal;
+  const modalDict = content;
   const isAr = lang === "ar";
 
-  const [formData, setFormData] = useState({
-    name: "",
-    email: "",
-    phone: "",
-    propertyType: modalDict.propertyOptions[0] || "",
-    serviceType: modalDict.serviceOptions[0] || "",
-    message: "",
+  const {
+    formData,
+    isSubmitting,
+    isSubmitted,
+    error,
+    handleChange,
+    resetForm,
+    handleSubmit,
+  } = useProposalForm({
+    initialPropertyType: modalDict.propertyOptions[0] || "",
+    initialServiceType: modalDict.serviceOptions[0] || "",
+    service: proposalService,
   });
-
-  const [isSubmitting, setIsSubmitting] = useState(false);
-  const [isSubmitted, setIsSubmitted] = useState(false);
 
   // Close on Escape key press
   useEffect(() => {
@@ -42,29 +48,20 @@ export default function ProposalModal({
     return () => window.removeEventListener("keydown", handleKeyDown);
   }, [isOpen, onClose]);
 
-  // Lock scroll when open
+  // Lock scroll when open & reset form on close
   useEffect(() => {
     if (isOpen) {
       document.body.style.overflow = "hidden";
     } else {
       document.body.style.overflow = "";
-      setIsSubmitted(false);
+      resetForm();
     }
     return () => {
       document.body.style.overflow = "";
     };
-  }, [isOpen]);
+  }, [isOpen, resetForm]);
 
   if (!isOpen) return null;
-
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    setIsSubmitting(true);
-    setTimeout(() => {
-      setIsSubmitting(false);
-      setIsSubmitted(true);
-    }, 900);
-  };
 
   return (
     <div
@@ -73,19 +70,12 @@ export default function ProposalModal({
       aria-modal="true"
       aria-labelledby="modal-title"
     >
-      {/* Backdrop click to close */}
-      <div
-        className="fixed inset-0"
-        aria-hidden="true"
-        onClick={onClose}
-      />
+      <div className="fixed inset-0" aria-hidden="true" onClick={onClose} />
 
       <div className="relative w-full max-w-2xl bg-ink border border-brass/30 rounded-lg shadow-2xl overflow-hidden z-10 my-8">
-        {/* Header gradient bar */}
         <div className="h-1.5 w-full bg-gradient-to-r from-brass via-brass-2 to-brass" />
 
         <div className="p-6 sm:p-8">
-          {/* Close button */}
           <button
             onClick={onClose}
             className="absolute top-5 end-5 p-2 text-stone hover:text-bone transition-colors rounded-sm focus:outline-none focus-visible:ring-2 focus-visible:ring-brass"
@@ -120,9 +110,14 @@ export default function ProposalModal({
                 {modalDict.subtitle}
               </p>
 
+              {error && (
+                <div className="mb-4 p-3 bg-red-950/50 border border-red-500/50 rounded-sm text-red-200 text-xs">
+                  {error}
+                </div>
+              )}
+
               <form onSubmit={handleSubmit} className="space-y-4">
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                  {/* Name */}
                   <div>
                     <label className="block text-xs font-mono text-stone uppercase mb-1.5">
                       {modalDict.nameLabel} *
@@ -131,15 +126,12 @@ export default function ProposalModal({
                       type="text"
                       required
                       value={formData.name}
-                      onChange={(e) =>
-                        setFormData({ ...formData, name: e.target.value })
-                      }
+                      onChange={(e) => handleChange("name", e.target.value)}
                       placeholder={modalDict.namePlaceholder}
                       className="w-full px-3.5 py-2.5 bg-ink-2 border border-hairline rounded-sm text-bone placeholder-stone/50 text-sm focus:outline-none focus:border-brass focus:ring-1 focus:ring-brass transition-colors"
                     />
                   </div>
 
-                  {/* Email */}
                   <div>
                     <label className="block text-xs font-mono text-stone uppercase mb-1.5">
                       {modalDict.emailLabel} *
@@ -148,9 +140,7 @@ export default function ProposalModal({
                       type="email"
                       required
                       value={formData.email}
-                      onChange={(e) =>
-                        setFormData({ ...formData, email: e.target.value })
-                      }
+                      onChange={(e) => handleChange("email", e.target.value)}
                       placeholder={modalDict.emailPlaceholder}
                       className="w-full px-3.5 py-2.5 bg-ink-2 border border-hairline rounded-sm text-bone placeholder-stone/50 text-sm focus:outline-none focus:border-brass focus:ring-1 focus:ring-brass transition-colors"
                     />
@@ -158,31 +148,27 @@ export default function ProposalModal({
                 </div>
 
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                  {/* Phone */}
                   <div>
                     <label className="block text-xs font-mono text-stone uppercase mb-1.5">
                       {modalDict.phoneLabel}
                     </label>
                     <input
                       type="tel"
-                      value={formData.phone}
-                      onChange={(e) =>
-                        setFormData({ ...formData, phone: e.target.value })
-                      }
+                      value={formData.phone || ""}
+                      onChange={(e) => handleChange("phone", e.target.value)}
                       placeholder={modalDict.phonePlaceholder}
                       className="w-full px-3.5 py-2.5 bg-ink-2 border border-hairline rounded-sm text-bone placeholder-stone/50 text-sm focus:outline-none focus:border-brass focus:ring-1 focus:ring-brass transition-colors"
                     />
                   </div>
 
-                  {/* Property Category */}
                   <div>
                     <label className="block text-xs font-mono text-stone uppercase mb-1.5">
                       {modalDict.propertyTypeLabel}
                     </label>
                     <select
-                      value={formData.propertyType}
+                      value={formData.propertyType || ""}
                       onChange={(e) =>
-                        setFormData({ ...formData, propertyType: e.target.value })
+                        handleChange("propertyType", e.target.value)
                       }
                       className="w-full px-3.5 py-2.5 bg-ink-2 border border-hairline rounded-sm text-bone text-sm focus:outline-none focus:border-brass focus:ring-1 focus:ring-brass transition-colors"
                     >
@@ -195,15 +181,14 @@ export default function ProposalModal({
                   </div>
                 </div>
 
-                {/* Service Scope */}
                 <div>
                   <label className="block text-xs font-mono text-stone uppercase mb-1.5">
                     {modalDict.serviceTypeLabel}
                   </label>
                   <select
-                    value={formData.serviceType}
+                    value={formData.serviceType || ""}
                     onChange={(e) =>
-                      setFormData({ ...formData, serviceType: e.target.value })
+                      handleChange("serviceType", e.target.value)
                     }
                     className="w-full px-3.5 py-2.5 bg-ink-2 border border-hairline rounded-sm text-bone text-sm focus:outline-none focus:border-brass focus:ring-1 focus:ring-brass transition-colors"
                   >
@@ -215,23 +200,19 @@ export default function ProposalModal({
                   </select>
                 </div>
 
-                {/* Message */}
                 <div>
                   <label className="block text-xs font-mono text-stone uppercase mb-1.5">
                     {modalDict.messageLabel}
                   </label>
                   <textarea
                     rows={3}
-                    value={formData.message}
-                    onChange={(e) =>
-                      setFormData({ ...formData, message: e.target.value })
-                    }
+                    value={formData.message || ""}
+                    onChange={(e) => handleChange("message", e.target.value)}
                     placeholder={modalDict.messagePlaceholder}
                     className="w-full px-3.5 py-2.5 bg-ink-2 border border-hairline rounded-sm text-bone placeholder-stone/50 text-sm focus:outline-none focus:border-brass focus:ring-1 focus:ring-brass transition-colors resize-none"
                   />
                 </div>
 
-                {/* Submit button */}
                 <div className="pt-2 flex justify-end">
                   <button
                     type="submit"
@@ -269,7 +250,6 @@ export default function ProposalModal({
               </form>
             </>
           ) : (
-            /* Success State */
             <div className="py-8 text-center space-y-4">
               <div className="w-12 h-12 bg-brass/10 border border-brass text-brass rounded-full flex items-center justify-center mx-auto">
                 <svg

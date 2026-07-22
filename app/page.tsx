@@ -5,22 +5,26 @@ import Services from "@/components/Services";
 import Team from "@/components/Team";
 import Footer from "@/components/Footer";
 import LocaleHtml from "@/components/LocaleHtml";
-import { content } from "@/lib/content";
+import { getContent } from "@/lib/content";
 
 export default function Home() {
-  const dict = content.en;
+  const dict = getContent("en");
 
   return (
     <div lang="en" dir="ltr" className="flex flex-col min-h-screen bg-ink">
       <LocaleHtml lang="en" dir="ltr" />
-      <Nav lang="en" dict={dict} />
+      <Nav lang="en" content={dict.nav} />
       <main className="flex-1">
-        <Hero lang="en" dict={dict} />
-        <About lang="en" dict={dict} />
-        <Services lang="en" dict={dict} />
-        <Team lang="en" dict={dict} />
+        <Hero lang="en" content={dict.hero} />
+        <About lang="en" content={dict.about} />
+        <Services lang="en" content={dict.services} />
+        <Team lang="en" content={dict.team} />
       </main>
-      <Footer lang="en" dict={dict} />
+      <Footer
+        lang="en"
+        content={dict.footer}
+        proposalModalContent={dict.proposalModal}
+      />
     </div>
   );
 }
