@@ -1,5 +1,9 @@
 import Nav from "@/components/Nav";
 import Hero from "@/components/Hero";
+import About from "@/components/About";
+import Services from "@/components/Services";
+import Team from "@/components/Team";
+import Footer from "@/components/Footer";
 import LocaleHtml from "@/components/LocaleHtml";
 import { content } from "@/lib/content";
 
@@ -12,7 +16,11 @@ export default function Home() {
       <Nav lang="en" dict={dict} />
       <main className="flex-1">
         <Hero lang="en" dict={dict} />
+        <About lang="en" dict={dict} />
+        <Services lang="en" dict={dict} />
+        <Team lang="en" dict={dict} />
       </main>
+      <Footer lang="en" dict={dict} />
     </div>
   );
 }

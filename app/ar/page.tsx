@@ -1,6 +1,10 @@
 import type { Metadata } from "next";
 import Nav from "@/components/Nav";
 import Hero from "@/components/Hero";
+import About from "@/components/About";
+import Services from "@/components/Services";
+import Team from "@/components/Team";
+import Footer from "@/components/Footer";
 import LocaleHtml from "@/components/LocaleHtml";
 import { content } from "@/lib/content";
 
@@ -18,7 +22,11 @@ export default function ArabicHome() {
       <Nav lang="ar" dict={dict} />
       <main className="flex-1">
         <Hero lang="ar" dict={dict} />
+        <About lang="ar" dict={dict} />
+        <Services lang="ar" dict={dict} />
+        <Team lang="ar" dict={dict} />
       </main>
+      <Footer lang="ar" dict={dict} />
     </div>
   );
 }
