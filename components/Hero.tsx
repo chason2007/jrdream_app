@@ -16,14 +16,18 @@ export default function Hero({ lang, content }: HeroProps) {
   return (
     <section className="relative flex items-center min-h-[88vh] pt-28 pb-24 sm:pt-32 sm:pb-28 overflow-hidden">
       <div className="absolute inset-0 bg-ink" aria-hidden="true">
+        {/* Sunset photo: keep the warm hue (light desaturation), darken for legibility */}
         <div
-          className="absolute inset-0 bg-cover bg-center [filter:grayscale(0.4)_brightness(0.9)_contrast(1.05)]"
+          className="absolute inset-0 bg-cover bg-center [filter:grayscale(0.2)_brightness(0.78)_contrast(1.05)]"
           style={{ backgroundImage: "url(/hero-abudhabi.jpg)" }}
         />
-        <div className="absolute inset-0 bg-ink/35 mix-blend-multiply" />
-        <div className="absolute inset-0 bg-brass/[0.06] mix-blend-soft-light" />
-        <div className="absolute inset-0 bg-gradient-to-b from-ink via-ink/25 to-ink" />
-        <div className="absolute inset-0 [background:radial-gradient(130%_90%_at_50%_40%,transparent_42%,rgba(13,24,38,0.72)_100%)]" />
+        {/* Gentle ink tie-in (kept low so the warmth survives) + brass glow on highlights */}
+        <div className="absolute inset-0 bg-ink/30 mix-blend-multiply" />
+        <div className="absolute inset-0 bg-brass/[0.10] mix-blend-soft-light" />
+        {/* Vertical scrim: blend into ink under the nav (top) and into the page (bottom) */}
+        <div className="absolute inset-0 bg-gradient-to-b from-ink via-ink/30 to-ink" />
+        {/* Soft vignette to hold focus on the centered type */}
+        <div className="absolute inset-0 [background:radial-gradient(130%_90%_at_50%_40%,transparent_40%,rgba(13,24,38,0.78)_100%)]" />
         <div
           className="absolute inset-0 opacity-[0.05] mix-blend-overlay"
           style={{
@@ -47,7 +51,7 @@ export default function Hero({ lang, content }: HeroProps) {
         )}
 
         <h1
-          className={`reveal mb-6 font-serif font-bold text-bone text-center text-balance text-[clamp(2.25rem,5vw+1.25rem,4.5rem)] ${headlineType}`}
+          className={`reveal mb-6 font-serif font-bold text-bone text-center text-balance text-[clamp(2.25rem,5vw+1.25rem,4.5rem)] [text-shadow:0_2px_28px_rgba(13,24,38,0.55)] ${headlineType}`}
           style={{ animationDelay: "0.12s" }}
         >
           {content.headlineLead}{" "}
@@ -55,7 +59,7 @@ export default function Hero({ lang, content }: HeroProps) {
         </h1>
 
         <p
-          className="reveal mb-10 text-stone text-center max-w-[60ch] mx-auto leading-relaxed text-pretty text-[clamp(1.05rem,0.6vw+0.95rem,1.3rem)]"
+          className="reveal mb-10 text-stone text-center max-w-[60ch] mx-auto leading-relaxed text-pretty text-[clamp(1.05rem,0.6vw+0.95rem,1.3rem)] [text-shadow:0_1px_16px_rgba(13,24,38,0.5)]"
           style={{ animationDelay: "0.24s" }}
         >
           {content.lede}

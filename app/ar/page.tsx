@@ -3,7 +3,6 @@ import Nav from "@/components/Nav";
 import Hero from "@/components/Hero";
 import About from "@/components/About";
 import Services from "@/components/Services";
-import Team from "@/components/Team";
 import Footer from "@/components/Footer";
 import LocaleHtml from "@/components/LocaleHtml";
 import { getContent } from "@/lib/content";
@@ -24,7 +23,6 @@ export default function ArabicHome() {
         <Hero lang="ar" content={dict.hero} />
         <About lang="ar" content={dict.about} />
         <Services lang="ar" content={dict.services} />
-        <Team lang="ar" content={dict.team} />
       </main>
       <Footer
         lang="ar"

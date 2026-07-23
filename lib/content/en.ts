@@ -55,9 +55,9 @@ export const enContent: Content = {
   about: {
     eyebrow: "About JR Dream",
     title: "Property, Projects & Facilities Consultancy",
-    headline: "Delivering Tailored Solutions to Aviation, Corporate, and Elite Private Clients",
+    headline: "Delivering Tailored Solutions to Corporate and Elite Private Clients",
     paragraphs: [
-      "JR Dream is a Property, Projects, and Facilities Management Consultancy based in Abu Dhabi, delivering tailored solutions to Aviation, Corporate, and Elite Private Clients.",
+      "JR Dream is a Property, Projects, and Facilities Management Consultancy based in Abu Dhabi, delivering tailored solutions to Corporate and Elite Private Clients.",
       "Founded in 2024, JR Dream brings together over 17 years of UAE experience in real estate, facilities, and workplace strategy — helping clients turn complex spaces into efficient, sustainable, and inspiring environments.",
       "Our approach is technology-led, emphasizing data-driven decisions, transparency, and operational excellence across every project phase — from strategic planning and design management to delivery and ongoing asset performance.",
       "We are proud to serve as trusted partners for organizations shaping the future of the UAE, combining global best practices with local insight.",
@@ -65,7 +65,7 @@ export const enContent: Content = {
     stats: [
       { label: "UAE Industry Experience", value: "17+ Years" },
       { label: "Established HQ", value: "Abu Dhabi" },
-      { label: "Target Sectors", value: "Aviation & Corporate" },
+      { label: "Target Sectors", value: "Corporate & Private" },
       { label: "Delivery Model", value: "Data & Tech Led" },
     ],
   },

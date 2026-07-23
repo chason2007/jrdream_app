@@ -10,6 +10,10 @@
   --color-brass: #c6a15b;
   --color-brass-2: #dcc08a;
 
+  /* Light-section surfaces (warm, airy — the "dark hero → light content" blend) */
+  --color-paper: #f5efe4;
+  --color-surface: #fffdf8;
+
   /* Latin (default) type stacks — bound to the next/font faces */
   --font-serif: var(--font-fraunces), Georgia, serif;
   --font-sans: var(--font-instrument-sans), system-ui, sans-serif;
@@ -32,6 +36,8 @@
   --color-stone: var(--color-stone);
   --color-brass: var(--color-brass);
   --color-brass-2: var(--color-brass-2);
+  --color-paper: var(--color-paper);
+  --color-surface: var(--color-surface);
 
   --font-serif: var(--font-serif);
   --font-sans: var(--font-sans);
