@@ -1,4 +1,5 @@
 import type { Content } from "./types";
+import { createServiceItems } from "./helpers";
 
 export const enContent: Content = {
   dir: "ltr",
@@ -23,53 +24,17 @@ export const enContent: Content = {
     eyebrow: "",
     title: "Services Offered",
     mission: "",
-    items: [
-      {
-        num: "01",
-        title: "Property Management",
-        desc: "",
-      },
-      {
-        num: "02",
-        title: "Facilities Management",
-        desc: "",
-      },
-      {
-        num: "03",
-        title: "Property Consultant",
-        desc: "",
-      },
-      {
-        num: "04",
-        title: "Refurbishment Project Management",
-        desc: "",
-      },
-      {
-        num: "05",
-        title: "Redevelopment Project Management",
-        desc: "",
-      },
-      {
-        num: "06",
-        title: "Property Conditional Survey",
-        desc: "",
-      },
-      {
-        num: "07",
-        title: "Post Completion Takeover",
-        desc: "",
-      },
-      {
-        num: "08",
-        title: "Property Handover",
-        desc: "",
-      },
-      {
-        num: "09",
-        title: "Commercial Fitout",
-        desc: "",
-      },
-    ],
+    items: createServiceItems([
+      "Property Management",
+      "Facilities Management",
+      "Property Consultant",
+      "Refurbishment Project Management",
+      "Redevelopment Project Management",
+      "Property Conditional Survey",
+      "Post Completion Takeover",
+      "Property Handover",
+      "Commercial Fitout",
+    ]),
   },
   about: {
     eyebrow: "",

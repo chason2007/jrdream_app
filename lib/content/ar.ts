@@ -1,4 +1,5 @@
 import type { Content } from "./types";
+import { createServiceItems } from "./helpers";
 
 export const arContent: Content = {
   dir: "rtl",
@@ -23,53 +24,17 @@ export const arContent: Content = {
     eyebrow: "",
     title: "الخدمات المقدمة",
     mission: "",
-    items: [
-      {
-        num: "01",
-        title: "إدارة العقارات",
-        desc: "",
-      },
-      {
-        num: "02",
-        title: "إدارة المرافق",
-        desc: "",
-      },
-      {
-        num: "03",
-        title: "استشارات عقارية",
-        desc: "",
-      },
-      {
-        num: "04",
-        title: "إدارة مشاريع التجديد",
-        desc: "",
-      },
-      {
-        num: "05",
-        title: "إدارة مشاريع إعادة التطوير",
-        desc: "",
-      },
-      {
-        num: "06",
-        title: "مسح وتقييم حالة العقارات",
-        desc: "",
-      },
-      {
-        num: "07",
-        title: "الاستلام بعد الإنجاز",
-        desc: "",
-      },
-      {
-        num: "08",
-        title: "تسليم العقارات",
-        desc: "",
-      },
-      {
-        num: "09",
-        title: "التجهيزات والتصميم التجاري",
-        desc: "",
-      },
-    ],
+    items: createServiceItems([
+      "إدارة العقارات",
+      "إدارة المرافق",
+      "استشارات عقارية",
+      "إدارة مشاريع التجديد",
+      "إدارة مشاريع إعادة التطوير",
+      "مسح وتقييم حالة العقارات",
+      "الاستلام بعد الإنجاز",
+      "تسليم العقارات",
+      "التجهيزات والتصميم التجاري",
+    ]),
   },
   about: {
     eyebrow: "",
