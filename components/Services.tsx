@@ -43,9 +43,11 @@ export default function Services({ content }: ServicesProps) {
               <h3 className="text-lg sm:text-xl font-serif font-bold text-ink mb-2 leading-snug">
                 {service.title}
               </h3>
-              <p className="text-ink/65 text-sm leading-relaxed">
-                {service.desc}
-              </p>
+              {service.desc && (
+                <p className="text-ink/65 text-sm leading-relaxed">
+                  {service.desc}
+                </p>
+              )}
             </div>
           ))}
         </div>

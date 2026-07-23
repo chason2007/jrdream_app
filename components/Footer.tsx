@@ -37,13 +37,15 @@ export default function Footer({
                 <img
                   src="/logo.png"
                   alt="JR Dream Logo"
-                  className="h-12 w-auto rounded-sm"
+                  className="h-20 sm:h-24 w-auto rounded-sm"
                 />
               </Link>
 
-              <p className="text-stone leading-relaxed max-w-md text-balance">
-                {footerDict.tagline}
-              </p>
+              {footerDict.tagline && (
+                <p className="text-stone leading-relaxed max-w-md text-balance">
+                  {footerDict.tagline}
+                </p>
+              )}
 
               <div>
                 <button
