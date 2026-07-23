@@ -5,7 +5,6 @@ export const arContent: Content = {
   htmlLang: "ar",
   nav: {
     links: [
-      { label: "العقارات", href: "#services" },
       { label: "المرافق", href: "#facilities" },
       { label: "أعمالنا", href: "#portfolio" },
       { label: "لماذا نحن", href: "#why-us" },
@@ -118,7 +117,6 @@ export const arContent: Content = {
       {
         title: "التنقل",
         links: [
-          { label: "العقارات", href: "#services" },
           { label: "المرافق", href: "#facilities" },
           { label: "أعمالنا", href: "#portfolio" },
           { label: "لماذا نحن", href: "#why-us" },

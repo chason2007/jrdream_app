@@ -5,7 +5,6 @@ export const enContent: Content = {
   htmlLang: "en",
   nav: {
     links: [
-      { label: "Real Estate", href: "#services" },
       { label: "Facilities", href: "#facilities" },
       { label: "Portfolio", href: "#portfolio" },
       { label: "Why Us", href: "#why-us" },
@@ -118,7 +117,6 @@ export const enContent: Content = {
       {
         title: "Navigation",
         links: [
-          { label: "Real Estate", href: "#services" },
           { label: "Facilities", href: "#facilities" },
           { label: "Portfolio", href: "#portfolio" },
           { label: "Why Us", href: "#why-us" },
