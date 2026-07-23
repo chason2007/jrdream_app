@@ -16,15 +16,19 @@ export default function Services({ content }: ServicesProps) {
 
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         {/* Header */}
-        <span className="font-mono text-xs text-brass uppercase tracking-[0.25em] block mb-4">
-          {content.eyebrow}
-        </span>
+        {content.eyebrow && (
+          <span className="font-mono text-xs text-brass uppercase tracking-[0.25em] block mb-4">
+            {content.eyebrow}
+          </span>
+        )}
         <h2 className="text-4xl sm:text-5xl lg:text-6xl font-serif font-bold text-ink leading-[1.1] text-balance max-w-3xl">
           {content.title}
         </h2>
-        <p className="mt-6 text-xl sm:text-2xl text-ink/70 italic font-serif leading-relaxed text-pretty max-w-3xl">
-          &ldquo;{content.mission}&rdquo;
-        </p>
+        {content.mission && (
+          <p className="mt-6 text-xl sm:text-2xl text-ink/70 italic font-serif leading-relaxed text-pretty max-w-3xl">
+            &ldquo;{content.mission}&rdquo;
+          </p>
+        )}
 
         {/* Services — airy ledger entries, no boxes */}
         <div className="mt-16 grid sm:grid-cols-2 lg:grid-cols-3 gap-x-10 gap-y-12">

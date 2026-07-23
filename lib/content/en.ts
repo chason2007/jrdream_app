@@ -13,7 +13,7 @@ export const enContent: Content = {
     clientPortal: "Client Portal",
   },
   hero: {
-    eyebrow: "Transforming Spaces. Empowering Vision",
+    eyebrow: "",
     headlineLead: "Great facilities management is",
     headlineAccent: "invisible.",
     lede: "JR Dream keeps Abu Dhabi's properties running so completely that the work itself disappears — leaving only a building that performs, every hour of every day.",
@@ -21,9 +21,9 @@ export const enContent: Content = {
     ctaSecondary: "Enter client portal",
   },
   services: {
-    eyebrow: "Our Scope of Work",
+    eyebrow: "",
     title: "Services Offered",
-    mission: "Bringing innovative solutions to optimize the potential of our clients and partners and shaping the future of Real Estate Management.",
+    mission: "",
     items: [
       {
         num: "01",
@@ -53,21 +53,16 @@ export const enContent: Content = {
     ],
   },
   about: {
-    eyebrow: "About JR Dream",
+    eyebrow: "",
     title: "Property, Projects & Facilities Consultancy",
-    headline: "Delivering Tailored Solutions to Corporate and Elite Private Clients",
+    headline: "",
     paragraphs: [
       "JR Dream is a Property, Projects, and Facilities Management Consultancy based in Abu Dhabi, delivering tailored solutions to Corporate and Elite Private Clients.",
       "Founded in 2024, JR Dream brings together over 17 years of UAE experience in real estate, facilities, and workplace strategy — helping clients turn complex spaces into efficient, sustainable, and inspiring environments.",
       "Our approach is technology-led, emphasizing data-driven decisions, transparency, and operational excellence across every project phase — from strategic planning and design management to delivery and ongoing asset performance.",
       "We are proud to serve as trusted partners for organizations shaping the future of the UAE, combining global best practices with local insight.",
     ],
-    stats: [
-      { label: "UAE Industry Experience", value: "17+ Years" },
-      { label: "Established HQ", value: "Abu Dhabi" },
-      { label: "Target Sectors", value: "Corporate & Private" },
-      { label: "Delivery Model", value: "Data & Tech Led" },
-    ],
+    stats: [],
   },
   team: {
     eyebrow: "Leadership & Expertise",
@@ -113,7 +108,7 @@ export const enContent: Content = {
     ],
   },
   footer: {
-    tagline: "Transforming Spaces. Empowering Vision — Elevating real estate performance and facilities excellence across Abu Dhabi.",
+    tagline: "Elevating real estate performance and facilities excellence across Abu Dhabi.",
     address: "Tower 1, Mazyad Mall Offices Floor 9, Office 30 - Abu Dhabi - United Arab Emirates",
     phone: "+971 2 600 0100",
     email: "contact@jrdream.ae",
