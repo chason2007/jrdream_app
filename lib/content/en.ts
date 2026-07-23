@@ -1,5 +1,6 @@
 import type { Content } from "./types";
 import { createServiceItems } from "./helpers";
+import { getTeamContent, getFooterContent, getProposalModalContent } from "./common";
 
 export const enContent: Content = {
   dir: "ltr",
@@ -47,89 +48,7 @@ export const enContent: Content = {
     ],
     stats: [],
   },
-  team: {
-    eyebrow: "Leadership & Expertise",
-    title: "Meet Our Team",
-    subtitle: "Dedicated professionals working together to deliver exceptional property, projects, and facilities management solutions across the UAE.",
-    founder: {
-      name: "Joseph Dass",
-      role: "Founder / Director",
-      bio: "With over two decades of experience in the property and asset management sector, Joseph leads JR Dream with a vision to redefine real estate and facilities management consulting in the UAE.",
-      image: "/josephdass.jpg",
-      email: "jdass@jrdream.com",
-      linkedin: "https://www.linkedin.com/in/jrdass/",
-    },
-    members: [
-      {
-        name: "Darius Lotino",
-        role: "Project Manager (Engineering)",
-        credentials: "MBA, PEE, ACPE",
-        image: "/darius.png",
-        linkedin: "https://www.linkedin.com/in/darius-z-lotino-mba-pee-acpe-4b1427177/",
-      },
-      {
-        name: "Jennifer Robin",
-        role: "Project Engineer",
-        image: "/jennifer.png",
-        linkedin: "https://www.linkedin.com/in/jjennifer-robin/",
-      },
-      {
-        name: "Johanas",
-        role: "Senior Facilities Consultant",
-        image: "/johanas.png",
-      },
-      {
-        name: "Biju",
-        role: "Operations & Technical Advisor",
-        image: "/biju.png",
-      },
-      {
-        name: "Peter",
-        role: "Asset & Compliance Lead",
-        image: "/peter.png",
-      },
-    ],
-  },
-  footer: {
-    tagline: "",
-    address: "Tower 1, Mazyad Mall Offices Floor 9, Office 30 - Abu Dhabi - United Arab Emirates",
-    phone: "+971 52 298 8611",
-    email: "supportcenter@jrdream.com",
-    hours: "Sun – Thu: 8:00 AM – 6:00 PM GST",
-    requestProposalBtn: "Request a Proposal",
-    sections: [],
-    copyright: "© 2026 JR Dream Property & Facilities Management Consultancy.",
-    rights: "All Rights Reserved.",
-  },
-  proposalModal: {
-    title: "Request a Custom Proposal",
-    subtitle: "Tell us about your property and management goals. Our advisory team in Abu Dhabi will respond within 24 hours.",
-    nameLabel: "Full Name",
-    namePlaceholder: "e.g. Sultan Al Mansoori",
-    emailLabel: "Email Address",
-    emailPlaceholder: "sultan@company.ae",
-    phoneLabel: "Phone Number",
-    phonePlaceholder: "+971 50 123 4567",
-    propertyTypeLabel: "Property Category",
-    propertyOptions: [
-      "Commercial Office Tower",
-      "Luxury Residential Complex",
-      "Retail & Mixed-Use Hub",
-      "Industrial & Logistics Facility",
-      "Government & Cultural Asset",
-    ],
-    serviceTypeLabel: "Primary Service Scope",
-    serviceOptions: [
-      "Total Facilities Management (TFM)",
-      "Property Management & Leasing",
-      "MEP & Energy Efficiency Retrofit",
-      "Strategic Real Estate Consulting",
-    ],
-    messageLabel: "Project Details & Specific Requirements",
-    messagePlaceholder: "Specify building area (sq ft), location, timeline, or current challenges...",
-    submitBtn: "Submit Proposal Request",
-    successTitle: "Proposal Request Received",
-    successMsg: "Thank you for reaching out to JR Dream. A senior portfolio director will review your specifications and contact you shortly.",
-    closeBtn: "Close Window",
-  },
+  team: getTeamContent("en"),
+  footer: getFooterContent("en"),
+  proposalModal: getProposalModalContent("en"),
 };

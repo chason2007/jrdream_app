@@ -2,10 +2,10 @@ import type { BaseLocaleProps } from "@/types/common";
 import type { AboutContent } from "@/lib/content";
 
 export interface AboutProps extends BaseLocaleProps {
-  content: AboutContent;
+  readonly content: AboutContent;
 }
 
-export default function About({ content }: AboutProps) {
+export default function About({ content }: Readonly<AboutProps>) {
   return (
     <section
       id="about"
@@ -32,16 +32,16 @@ export default function About({ content }: AboutProps) {
 
         {/* Body — flowing text, no boxes */}
         <div className="mt-14 grid md:grid-cols-2 gap-x-14 gap-y-6 text-base sm:text-lg leading-relaxed text-ink/70">
-          {content.paragraphs.map((p, idx) => (
-            <p key={idx}>{p}</p>
+          {content.paragraphs.map((p) => (
+            <p key={p}>{p}</p>
           ))}
         </div>
 
         {/* Stats — one clean inline row */}
         {content.stats && content.stats.length > 0 && (
           <div className="mt-16 pt-10 border-t border-ink/10 grid grid-cols-2 md:grid-cols-4 gap-8">
-            {content.stats.map((stat, idx) => (
-              <div key={idx}>
+            {content.stats.map((stat) => (
+              <div key={stat.label || stat.value}>
                 <div className="font-serif text-3xl sm:text-4xl font-bold text-ink">
                   {stat.value}
                 </div>

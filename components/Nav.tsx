@@ -5,7 +5,7 @@ import Link from "next/link";
 import type { BaseLocaleProps } from "@/types/common";
 import type { NavContent } from "@/lib/content";
 
-function LanguageToggle({ lang }: BaseLocaleProps) {
+function LanguageToggle({ lang }: Readonly<BaseLocaleProps>) {
   const base =
     "transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-brass focus-visible:ring-offset-2 focus-visible:ring-offset-ink rounded-sm px-1";
   return (
@@ -35,10 +35,10 @@ function LanguageToggle({ lang }: BaseLocaleProps) {
 }
 
 export interface NavProps extends BaseLocaleProps {
-  content: NavContent;
+  readonly content: NavContent;
 }
 
-export default function Nav({ lang, content }: NavProps) {
+export default function Nav({ lang, content }: Readonly<NavProps>) {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   const linkClass =

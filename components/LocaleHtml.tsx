@@ -11,10 +11,10 @@ import { useEffect } from "react";
 export default function LocaleHtml({
   lang,
   dir,
-}: {
+}: Readonly<{
   lang: string;
   dir: "ltr" | "rtl";
-}) {
+}>) {
   useEffect(() => {
     const root = document.documentElement;
     root.lang = lang;

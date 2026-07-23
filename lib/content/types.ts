@@ -1,4 +1,4 @@
-import type { Locale, TextDirection } from "@/types/common";
+import type { TextDirection } from "@/types/common";
 
 export interface NavLink {
   label: string;

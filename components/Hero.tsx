@@ -2,10 +2,10 @@ import type { BaseLocaleProps } from "@/types/common";
 import type { HeroContent } from "@/lib/content";
 
 export interface HeroProps extends BaseLocaleProps {
-  content: HeroContent;
+  readonly content: HeroContent;
 }
 
-export default function Hero({ lang, content }: HeroProps) {
+export default function Hero({ lang, content }: Readonly<HeroProps>) {
   const isAr = lang === "ar";
 
   const headlineType = isAr

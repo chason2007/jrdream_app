@@ -1,5 +1,6 @@
 import type { Content } from "./types";
 import { createServiceItems } from "./helpers";
+import { getTeamContent, getFooterContent, getProposalModalContent } from "./common";
 
 export const arContent: Content = {
   dir: "rtl",
@@ -47,89 +48,7 @@ export const arContent: Content = {
     ],
     stats: [],
   },
-  team: {
-    eyebrow: "القيادة والخبرة",
-    title: "فريق العمل",
-    subtitle: "نخبة من المحترفين يعملون معاً لتقديم حلول استثنائية في إدارة العقارات والمشاريع والمرافق في الإمارات.",
-    founder: {
-      name: "جوزيف داس",
-      role: "المؤسس / المدير التنفيذي",
-      bio: "يمتلك جوزيف خبرة تمتد لأكثر من عقدين في قطاع إدارة العقارات والأصول، ويقود جي آر دريم برؤية تهدف إلى إعادة تعريف استشارات إدارة العقارات والمرافق في الإمارات.",
-      image: "/josephdass.jpg",
-      email: "jdass@jrdream.com",
-      linkedin: "https://www.linkedin.com/in/jrdass/",
-    },
-    members: [
-      {
-        name: "داريوس لوتينو",
-        role: "مدير مشاريع (الهندسة)",
-        credentials: "MBA, PEE, ACPE",
-        image: "/darius.png",
-        linkedin: "https://www.linkedin.com/in/darius-z-lotino-mba-pee-acpe-4b1427177/",
-      },
-      {
-        name: "جينيفر روبين",
-        role: "مهندسة مشاريع",
-        image: "/jennifer.png",
-        linkedin: "https://www.linkedin.com/in/jjennifer-robin/",
-      },
-      {
-        name: "يوهانس",
-        role: "مستشار أول للمرافق",
-        image: "/johanas.png",
-      },
-      {
-        name: "بيجو",
-        role: "مستشار العمليات والدعم الفني",
-        image: "/biju.png",
-      },
-      {
-        name: "بيتر",
-        role: "مسؤول الأصول والامتثال",
-        image: "/peter.png",
-      },
-    ],
-  },
-  footer: {
-    tagline: "",
-    address: "البرج 1، مكاتب مزيد مول الطابق 9، مكتب 30 - أبوظبي - الإمارات العربية المتحدة",
-    phone: "+971 52 298 8611",
-    email: "supportcenter@jrdream.com",
-    hours: "الأحد – الخميس: 8:00 صباحاً – 6:00 مساءً",
-    requestProposalBtn: "طلب تقديم عرض",
-    sections: [],
-    copyright: "© 2026 استشارات جي آر دريم لإدارة العقارات والمرافق.",
-    rights: "جميع الحقوق محفوظة.",
-  },
-  proposalModal: {
-    title: "طلب تقديم عرض أسعار مخصص",
-    subtitle: "أخبرنا عن عقاراتك وأهداف الإدارة. سيقوم فريقنا الاستشاري في أبوظبي بالرد عليك خلال 24 ساعة.",
-    nameLabel: "الاسم الكامل",
-    namePlaceholder: "مثال: سلطان المنصوري",
-    emailLabel: "البريد الإلكتروني",
-    emailPlaceholder: "sultan@company.ae",
-    phoneLabel: "رقم الهاتف",
-    phonePlaceholder: "+971 50 123 4567",
-    propertyTypeLabel: "فئة العقار",
-    propertyOptions: [
-      "برج مكاتب تجاري",
-      "مجمع سكني فاخر",
-      "مركز تجاري ومتعدد الاستخدامات",
-      "منشأة لوجستية وصناعية",
-      "أصل حكومي أو ثقافي",
-    ],
-    serviceTypeLabel: "نطاق الخدمة الرئيسي",
-    serviceOptions: [
-      "الإدارة الشاملة للمرافق (TFM)",
-      "إدارة العقارات والتأجير",
-      "تحديث الكهروميكانيك وكفاءة الطاقة",
-      "استشارات عقارية استراتيجية",
-    ],
-    messageLabel: "تفاصيل المشروع والمتطلبات الخاصة",
-    messagePlaceholder: "حدد مساحة المبنى (قدم مربع)، الموقع، الجدول الزمني، أو التحديات الحالية...",
-    submitBtn: "إرسال طلب العرض",
-    successTitle: "تم استلام طلب تقديم العرض",
-    successMsg: "شكراً لتواصلك مع جي آر دريم. سيقوم مدير المحفظة بمراجعة تفاصيلك والتواصل معك قريباً.",
-    closeBtn: "إغلاق النافذة",
-  },
+  team: getTeamContent("ar"),
+  footer: getFooterContent("ar"),
+  proposalModal: getProposalModalContent("ar"),
 };

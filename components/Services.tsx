@@ -3,10 +3,10 @@ import type { ServicesContent } from "@/lib/content";
 import { renderServiceIcon } from "@/lib/icons/serviceIcons";
 
 export interface ServicesProps extends BaseLocaleProps {
-  content: ServicesContent;
+  readonly content: ServicesContent;
 }
 
-export default function Services({ content }: ServicesProps) {
+export default function Services({ content }: Readonly<ServicesProps>) {
   return (
     <section
       id="services"

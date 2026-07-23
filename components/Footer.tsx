@@ -7,15 +7,15 @@ import type { FooterContent, ProposalModalContent } from "@/lib/content";
 import ProposalModal from "./ProposalModal";
 
 export interface FooterProps extends BaseLocaleProps {
-  content: FooterContent;
-  proposalModalContent: ProposalModalContent;
+  readonly content: FooterContent;
+  readonly proposalModalContent: ProposalModalContent;
 }
 
 export default function Footer({
   lang,
   content,
   proposalModalContent,
-}: FooterProps) {
+}: Readonly<FooterProps>) {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const footerDict = content;
   const isAr = lang === "ar";

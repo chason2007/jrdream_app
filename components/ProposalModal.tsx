@@ -7,10 +7,10 @@ import { useProposalForm } from "@/hooks/useProposalForm";
 import type { IProposalService } from "@/lib/services/proposalService";
 
 export interface ProposalModalProps extends BaseLocaleProps {
-  isOpen: boolean;
-  onClose: () => void;
-  content: ProposalModalContent;
-  proposalService?: IProposalService;
+  readonly isOpen: boolean;
+  readonly onClose: () => void;
+  readonly content: ProposalModalContent;
+  readonly proposalService?: IProposalService;
 }
 
 export default function ProposalModal({
@@ -19,7 +19,7 @@ export default function ProposalModal({
   lang,
   content,
   proposalService,
-}: ProposalModalProps) {
+}: Readonly<ProposalModalProps>) {
   const modalDict = content;
   const isAr = lang === "ar";
 
@@ -64,10 +64,9 @@ export default function ProposalModal({
   if (!isOpen) return null;
 
   return (
-    <div
-      className="fixed inset-0 z-50 flex items-center justify-center p-4 sm:p-6 overflow-y-auto bg-ink/80 backdrop-blur-md transition-opacity duration-300"
-      role="dialog"
-      aria-modal="true"
+    <dialog
+      open={isOpen}
+      className="fixed inset-0 z-50 flex items-center justify-center p-4 sm:p-6 overflow-y-auto bg-ink/80 backdrop-blur-md transition-opacity duration-300 w-full h-full max-w-none max-h-none border-none bg-transparent"
       aria-labelledby="modal-title"
     >
       <div className="fixed inset-0" aria-hidden="true" onClick={onClose} />
@@ -284,6 +283,6 @@ export default function ProposalModal({
           )}
         </div>
       </div>
-    </div>
+    </dialog>
   );
 }

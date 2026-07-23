@@ -2,10 +2,10 @@ import type { BaseLocaleProps } from "@/types/common";
 import type { TeamContent } from "@/lib/content";
 
 export interface TeamProps extends BaseLocaleProps {
-  content: TeamContent;
+  readonly content: TeamContent;
 }
 
-export default function Team({ content }: TeamProps) {
+export default function Team({ content }: Readonly<TeamProps>) {
   const founder = content.founder;
 
   return (
